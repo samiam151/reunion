@@ -4,8 +4,10 @@
 
 <h1>RSVP Home</h1>
 <a href="{% url "rsvp:add" %}">Add RSVP</a>
+
 {% for rsvp in rsvps  %}
-<p>{{ rsvp.name }} is bringing {{ rsvp.numGuests }} people.</p>
+    <p>{{ rsvp.name }} is bringing {{ rsvp.numGuests }} people.</p>
+    <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
 {% endfor %}
 
 {% endblock content %}

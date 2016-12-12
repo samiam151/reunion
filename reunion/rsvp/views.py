@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
@@ -12,6 +12,12 @@ def rsvp_list(request):
 
 def rsvp_create(request):
     return render(request, 'rsvp/add.html')
+
+
+def rsvp_delete(request, pk=None):
+    instance = get_object_or_404(RSVP, pk=pk)
+    instance.delete()
+    return redirect("rsvp:list")
 
 
 class RSVPCreate(CreateView):

@@ -5,7 +5,7 @@ from .models import RSVP
 
 class RSVPModelAdmin(admin.ModelAdmin):
     '''Admin Model for RSVPs''';
-    list_display = ["name", "numGuests", "timestamp"]
+    list_display = ["name", "numGuests", "timestamp", 'id', 'pk']
     list_filter = ["name", "numGuests", "timestamp"]
     
     class Meta:
