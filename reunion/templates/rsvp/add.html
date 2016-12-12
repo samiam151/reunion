@@ -1,0 +1,14 @@
+{% extends "shared/_layout.html" %}
+
+{% block content %}
+
+
+<h2>Add RSVP</h2>
+<form method="POST">{% csrf_token %}
+    {{ form.name }}
+    {{ form.numGuests }}
+
+    <input type="submit" value="Add">
+</form>
+
+{% endblock content %}

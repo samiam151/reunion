@@ -3,5 +3,9 @@
 {% block content %}
 
 <h1>RSVP Home</h1>
+<a href="{% url "rsvp:add" %}">Add RSVP</a>
+{% for rsvp in rsvps  %}
+<p>{{ rsvp.name }} is bringing {{ rsvp.numGuests }} people.</p>
+{% endfor %}
 
 {% endblock content %}
