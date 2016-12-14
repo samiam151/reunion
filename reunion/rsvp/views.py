@@ -9,16 +9,10 @@ def rsvp_list(request):
     rsvps = RSVP.objects.all()
     return render(request, 'rsvp/list.html', { "rsvps": rsvps })
 
-
-def rsvp_create(request):
-    return render(request, 'rsvp/add.html')
-
-
 def rsvp_delete(request, pk=None):
     instance = get_object_or_404(RSVP, pk=pk)
     instance.delete()
     return redirect("rsvp:list")
-
 
 class RSVPCreate(CreateView):
     model = RSVP
