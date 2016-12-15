@@ -5,8 +5,20 @@
 
 <h2>Add RSVP</h2>
 <form method="POST">{% csrf_token %}
-    {{ form.name }}
-    {{ form.numGuests }}
+    <div class="question">
+        <label for="{{form.name.id_for_label}}">Name: </label>
+        {{ form.name }}
+    </div>
+
+    <div class="question">
+        <label for="{{form.numGuests.id_for_label}}">Number of Guests: </label>
+        {{ form.numGuests }}
+    </div>
+
+    <div class="question">
+        <label for="{{form.member.id_for_label}}">Family Member: </label>
+        {{ form.member }}
+    </div>
 
     <input type="submit" value="Add">
 </form>

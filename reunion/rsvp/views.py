@@ -7,21 +7,32 @@ from .models import RSVP
 # Create your views here.
 def rsvp_list(request):
     rsvps = RSVP.objects.all()
-    return render(request, 'rsvp/list.html', { "rsvps": rsvps })
 
+    def map_by_family():
+        rsvps_by_family = []
+        families = list(set([rsvp.member for rsvp in rsvps]))
+        for family in families:
+            print(family)
+            people_in_family = [rsvp.name for rsvp in rsvps if rsvp.member == family]
+            rsvps_by_family.append({ "name": family, "people": people_in_family })
 
-def rsvp_create(request):
-    return render(request, 'rsvp/add.html')
+        print(rsvps_by_family)
+        return rsvps_by_family
 
+    context = {
+        "rsvps": rsvps,
+        "rsvps_by_family": map_by_family(),
+    }
+
+    return render(request, 'rsvp/list.html', context)
 
 def rsvp_delete(request, pk=None):
     instance = get_object_or_404(RSVP, pk=pk)
     instance.delete()
     return redirect("rsvp:list")
 
-
 class RSVPCreate(CreateView):
     model = RSVP
-    fields = ['name','numGuests']
+    fields = ['name','numGuests', 'member']
     template_name = 'rsvp/add.html'
     success_url = '/rsvp'
