@@ -1,3 +1,5 @@
 bin
 lib
 **/__pycache__
+**/migrations
+reunion/db.sqlite3

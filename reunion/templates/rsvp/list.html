@@ -5,8 +5,20 @@
 <h1>RSVP Home</h1>
 <a href="{% url "rsvp:add" %}">Add RSVP</a>
 
+<!-- RSVP BY FAMILY -->
+{% for rsvp_f in rsvps_by_family %}
+    <h3>{{ rsvp_f.name }}</h3>
+    {% for member in rsvp_f.people %}
+        <p>{{ member }}</p>
+    {% endfor %}
+{% endfor %}
+
+<hr>
+
+<!-- All RSVPS -->
 {% for rsvp in rsvps  %}
-    <p>{{ rsvp.name }} is bringing {{ rsvp.numGuests }} people.</p>
+    <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people.</p>
+    <p>Family: {{rsvp.member}}</p>
     <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
 {% endfor %}
 
