@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^', include("home.urls", namespace="home")),
     url(r'^admin/', admin.site.urls),
     url(r'^rsvp/', include("rsvp.urls", namespace="rsvp")),
+    url(r'^tree/', include("tree.urls", namespace="tree")),
 ]

@@ -7,19 +7,22 @@
 
 <!-- RSVP BY FAMILY -->
 {% for rsvp_f in rsvps_by_family %}
-    <h3>{{ rsvp_f.name }}</h3>
+    <h4>{{ rsvp_f.name }}</h4>
+    <ul>
     {% for member in rsvp_f.people %}
-        <p>{{ member }}</p>
+        <li>{{ member }}</li>
     {% endfor %}
+    </ul>
 {% endfor %}
 
 <hr>
 
 <!-- All RSVPS -->
 {% for rsvp in rsvps  %}
-    <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people.</p>
-    <p>Family: {{rsvp.member}}</p>
-    <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
+    <div class="question">
+        <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people. [ {{ rsvp.member }} ]</p>
+        <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
+    </div>
 {% endfor %}
 
 {% endblock content %}

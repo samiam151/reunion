@@ -15,8 +15,6 @@ def rsvp_list(request):
             print(family)
             people_in_family = [rsvp.name for rsvp in rsvps if rsvp.member == family]
             rsvps_by_family.append({ "name": family, "people": people_in_family })
-
-        print(rsvps_by_family)
         return rsvps_by_family
 
     context = {
