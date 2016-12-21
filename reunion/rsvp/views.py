@@ -12,7 +12,6 @@ def rsvp_list(request):
         rsvps_by_family = []
         families = list(set([rsvp.member for rsvp in rsvps]))
         for family in families:
-            print(family)
             people_in_family = [rsvp.name for rsvp in rsvps if rsvp.member == family]
             rsvps_by_family.append({ "name": family, "people": people_in_family })
         return rsvps_by_family
@@ -27,10 +26,11 @@ def rsvp_list(request):
 def rsvp_delete(request, pk=None):
     instance = get_object_or_404(RSVP, pk=pk)
     instance.delete()
-    return redirect("rsvp:list")
+    return redirect("rsvp:list") 
 
 class RSVPCreate(CreateView):
     model = RSVP
     fields = ['name','numGuests', 'member']
     template_name = 'rsvp/add.html'
     success_url = '/rsvp'
+    

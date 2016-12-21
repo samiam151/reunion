@@ -1,28 +1,32 @@
 {% extends "shared/_layout.html" %}
-
+{% load humanize %}
 {% block content %}
 
 <h1>RSVP Home</h1>
-<a href="{% url "rsvp:add" %}">Add RSVP</a>
+<a href="{% url 'rsvp:add' %}">Add RSVP</a>
 
 <!-- RSVP BY FAMILY -->
-{% for rsvp_f in rsvps_by_family %}
-    <h4>{{ rsvp_f.name }}</h4>
-    <ul>
-    {% for member in rsvp_f.people %}
-        <li>{{ member }}</li>
+<div class="rsvp-by-family">
+    {% for rsvp_f in rsvps_by_family %}
+        <h4>{{ rsvp_f.name }}</h4>
+        <ul>
+            {% for member in rsvp_f.people %} 
+                <li>{{ member }}</li>
+            {% endfor %}
+        </ul>
     {% endfor %}
-    </ul>
-{% endfor %}
-
+</div>
 <hr>
 
 <!-- All RSVPS -->
-{% for rsvp in rsvps  %}
-    <div class="question">
-        <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people. [ {{ rsvp.member }} ]</p>
-        <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
-    </div>
-{% endfor %}
+<div class="rsvp-all">
+    {% for rsvp in rsvps %}
+        <div class="rsvp">
+            <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people. <small><i>{{ rsvp.timestamp | naturaltime }}</i></small> </p>
+            <p> {{ rsvp.name }} is from the  {{ rsvp.member }} side.</p>
+            <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}
