@@ -1,0 +1,28 @@
+{% extends "shared/_layout.html" %}
+
+{% block content %}
+
+<h1>Events</h1>
+
+<div class="events">
+
+    <!-- Events Loop -->
+    {% for event in events %}
+        <div class="event">
+
+            <!-- Name -->
+            <h3>{{ event.name }}</h3>
+            
+            <!-- Description -->
+            {% if event.description %}
+                <p><i>{{ event.description }}</i></p>
+            {% endif %}
+            
+            <!-- Time Start -->
+            <p>{{ event.time_start }}</p>
+        </div>        
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
