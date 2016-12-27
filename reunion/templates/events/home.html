@@ -19,7 +19,9 @@
             {% endif %}
             
             <!-- Time Start -->
-            <p>{{ event.time_start }}</p>
+            <p>{{ event.time_start | date }}</p>
+            <p>{{ event.time_start | time }} - {{ event.time_end | time }}</p>
+            
         </div>        
     {% endfor %}
 </div>
