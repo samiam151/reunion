@@ -1,0 +1,14 @@
+{% extends "shared/_layout.html" %}
+{% block content %}
+
+<h2>{{ event.name }}</h2>
+{% if event.description %}
+    <p><i>{{ event.description }}</i></p>
+{% endif %}
+
+<p>Starts at: {{ event.time_start }}</p>
+<p>Ends at: {{ event.time_end }}</p>
+
+<p>Location: {{ event.location }}</p>
+
+{% endblock content %}

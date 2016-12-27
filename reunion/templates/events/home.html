@@ -11,7 +11,7 @@
         <div class="event">
 
             <!-- Name -->
-            <h3>{{ event.name }}</h3>
+            <h3><a href="{% url 'events:detail' pk=event.pk %}">{{ event.name }}</a></h3>
             
             <!-- Description -->
             {% if event.description %}
