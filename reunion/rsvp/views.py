@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.core import serializers
 
 from .models import RSVP
 
@@ -34,3 +36,9 @@ class RSVPCreate(CreateView):
     fields = ['name','numGuests', 'member']
     template_name = 'rsvp/add.html'
     success_url = '/rsvp'
+
+# RESTful Endpoint for RSVPs
+def json_rsvp_all(request):
+    rsvps = RSVP.objects.all()
+    data = serializers.serialize('json', rsvps)
+    return HttpResponse(data, content_type="applcations/json")

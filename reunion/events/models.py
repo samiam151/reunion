@@ -10,3 +10,6 @@ class Event(models.Model):
 
     class Meta:
         ordering = ['time_start']
+    
+    def __str__(self):
+        return "{0}: {1}".format(self.name, self.time_start)
