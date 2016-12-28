@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1">
     <title>Phillips Family Reunion</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% comment %}<link rel="stylesheet" href="{% static 'css/style.css' %}">{% endcomment %}
+    <link rel="stylesheet" href="/reunion/static-root/css/style.css">
 </head>
 <body>
 
@@ -13,7 +14,10 @@
     {% include "includes/_header.html" %}
 
     <!-- Content -->
-    {% block content %}{% endblock content %}
+    <div class="fadein">
+        {% block content %}{% endblock content %}
+    </div>
+    
 
     <!-- Footer -->
     {% include "includes/_footer.html" %}
