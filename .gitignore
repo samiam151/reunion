@@ -3,3 +3,4 @@ lib
 **/__pycache__
 **/migrations
 reunion/db.sqlite3
+node_modules
