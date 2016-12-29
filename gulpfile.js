@@ -3,7 +3,6 @@ var sass = require("gulp-sass");
 var prefix = require("gulp-autoprefixer");
 var minify = require("gulp-cssmin");
 var browsersync = require("browser-sync");
-// var tfs = require("gulp-tfs-checkout");
 var del = require('del');
 var chalk = require('chalk');
 
@@ -49,7 +48,10 @@ function startBrowserSync() {
     var options = {
         proxy: 'localhost:8000/',
         port: 3000,
-        files: ['**/*.*'],
+        files: [
+            'templates/**.*',
+            'static-root/**/*.scss'
+        ],
         ghostMode: {
             click: true,
             scroll: true,

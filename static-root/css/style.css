@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Domine:400,700|Open+Sans:400,700");
 @-webkit-keyframes fadein {
   from {
     opacity: 0; }
   to {
     opacity: 1; } }
-
 @keyframes fadein {
   from {
     opacity: 0; }
@@ -11,19 +11,65 @@
     opacity: 1; } }
 
 .fadein {
-  -webkit-animation: fadein 0.5s;
-          animation: fadein 0.5s; }
-
-body {
-  background-color: chartreuse; }
+  -webkit-animation: fadein 1s;
+          animation: fadein 1s; }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif; }
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; }
+
+html {
+  font-size: 16px; }
+
+h1 {
+  color: #391C21;
+  font-family: 'Domine', serif;
+  font-weight: 700;
+  font-size: 52.5px; }
+
+h2 {
+  color: #A59385;
+  font-family: 'Domine', serif;
+  font-weight: 400;
+  font-size: 35px; }
+
+h3 {
+  font-weight: 700;
+  font-size: 19.25px; }
 
 li {
   list-style-type: none; }
 
-a:hover {
+a {
+  color: inherit;
   text-decoration: none; }
+  a:hover, a:active, a:focus {
+    text-decoration: none;
+    color: #4F5C24; }
+
+.container {
+  width: 80%;
+  margin: 0 auto; }
+
+body {
+  background-color: #FFFAFF;
+  border: 12.5px solid #BCA460;
+  padding: 1% 0 3%;
+  min-height: 100vh; }
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0.5em 20%; }
+
+.events {
+  margin-top: 15px; }
+  .events .days-events {
+    margin-top: 35px; }
+    .events .days-events .event {
+      margin-top: 15px; }

@@ -1,8 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700|Open+Sans:400,700');
+
+// Variables
+$purple: #391C21;
+$green: #4F5C24;
+$white:  #FFFAFF;
+$gold: #BCA460;
+$brown: #A59385;
+
+$font_size_mulitplier: 0.875;
+// Mixins
+@mixin serif {
+    font-family: 'Domine', serif;
+}
+@mixin sans-serif {
+    font-family: 'Open Sans', sans-serif;
+}
+@mixin bold {
+    font-weight: 700;
+}
+
+// Animations Definitions
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
 
+// Utility Classes
 .fadein {
-    animation: fadein 0.5s;
+    animation: fadein 1s;
 }

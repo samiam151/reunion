@@ -4,27 +4,34 @@
 
 <h1>Events</h1>
 
+<!--Events By Day Loop-->
 <div class="events">
-
-    <!-- Events Loop -->
-    {% for event in events %}
-        <div class="event">
-
-            <!-- Name -->
-            <h3><a href="{% url 'events:detail' pk=event.pk %}">{{ event.name }}</a></h3>
-            
-            <!-- Description -->
-            {% if event.description %}
-                <p><i>{{ event.description }}</i></p>
-            {% endif %}
-            
-            <!-- Time Start -->
-            <p>{{ event.time_start | date }}</p>
-            <p>{{ event.time_start | time }} - {{ event.time_end | time }}</p>
-            
-        </div>        
-    {% endfor %}
+{% for event_day in events_by_day %}
+    <div class="days-events">
+        <h2>{{ event_day.day }}</h2>
+        {% for event in event_day.events %}
+            <div class="event">
+                <!-- Name -->
+                <h3><a href="{% url 'events:detail' pk=event.pk %}">{{ event.name }}</a></h3>
+                
+                <!-- Description -->
+                {% if event.description %}
+                    <p><i>{{ event.description }}</i></p>
+                {% endif %}
+                
+                <!-- Time Start -->
+                <p>{{ event.time_start | date }}</p>
+                <p>{{ event.time_start | time }} - {{ event.time_end | time }}</p>
+                
+                {% if event.location %}
+                    <p><i>{{ event.location }}</i></p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
 </div>
+
 
 
 {% endblock content %}
