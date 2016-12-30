@@ -11,7 +11,8 @@ def eventsHome(request):
 
     def get_events_by_day():
         events_by_day = []
-        days = list(set([date(event.time_start) for event in events]))
+        days = sorted(list(set([date(event.time_start) for event in events])), reverse=True)
+        print(days)
         for day in days[::-1]:
             events_that_day = [event for event in events if date(event.time_start) == day]
             events_by_day.append({ "day": day, "events": events_that_day })

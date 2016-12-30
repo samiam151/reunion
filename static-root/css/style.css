@@ -11,8 +11,8 @@
     opacity: 1; } }
 
 .fadein {
-  -webkit-animation: fadein 1s;
-          animation: fadein 1s; }
+  -webkit-animation: fadein 0.5s;
+          animation: fadein 0.5s; }
 
 * {
   margin: 0;
