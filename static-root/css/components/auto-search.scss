@@ -1,0 +1,42 @@
+.auto-search {
+    position: relative;
+    width: 300px;
+
+    .auto-search-cont {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+
+        .auto-search-input {
+            flex-grow: 1;
+        }
+    }
+
+    .auto-search-results {
+        display: none;
+        position: absolute;
+        width: 100%;
+        padding: 2px 0 8px;
+        background-color: lighten($purple, 20%);
+        color: $white;
+        border-radius: 0 0 2px 2px;
+        opacity: 0.9;
+
+        .auto-search-result {
+            padding: 0 10px;
+            cursor: pointer;
+
+            a {
+                display: block;
+            }
+
+            &:hover {
+                background-color: $purple;
+                
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

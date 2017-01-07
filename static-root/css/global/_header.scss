@@ -1,0 +1,18 @@
+header {
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0.5em 10%;
+
+        li {
+            margin-right: 50px;
+            
+            a {
+                @include serif;
+                @include bold;
+                color: $gold;
+                font-size: 1.5em;
+            }
+        }
+    }
+}

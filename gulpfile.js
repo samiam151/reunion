@@ -13,7 +13,7 @@ gulp.task("build-css", function () {
         .src('./static-root/css/style.scss')      
         .pipe(sass().on('error', sass.logError))
         .pipe(prefix())
-        //.pipe(minify())
+        // .pipe(minify())
         .pipe(gulp.dest("./static-root/css"))
     .pipe(browsersync.stream());
 });
@@ -23,14 +23,20 @@ gulp.task("sync", function () {
     startBrowserSync();
 });
 
-// Constant watcher for browser-sync and sass-watch
-gulp.task("watch", ['build-css'], function(){
-    gulp.watch('./static-root/css/**/*.scss', ['build-css']);
-    gulp.watch(['./static-root/css/**/*.scss']).on('change', function () {
-        browsersync.reload();
-    });
+gulp.task('reload', function(){
+    browsersync.reload();
 });
 
+// Constant watcher for browser-sync and sass-watch
+gulp.task("default", ['build-css', 'sync'], function(){
+    gulp.watch('./static-root/css/**/*.scss', ['build-css']);
+    gulp.watch([
+        './static-root/css/**/*.scss',
+        './reunion/templates/**/*.html',
+        './reunion/**/views.py',
+        './static-root/js/**/*.js'
+    ], ['reload'])
+});
 
 
 // Utility Functions

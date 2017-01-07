@@ -1,8 +1,17 @@
 {% extends "shared/_layout.html" %}
+{% load staticfiles %}
 
 {% block content %}
 
 <h1>Reunion Home</h1>
 <p>Reunion Home</p>
 
+{% include "components/search_rsvps.html" %}
+
+
 {% endblock content %}
+
+<!--Scripts required for this template-->
+{% block template_scripts %}
+    <script type="text/javascript" src="{% static "js/components/autosearch.js" %}"></script>
+{% endblock template_scripts %}
