@@ -1,6 +1,6 @@
 .auto-search {
     position: relative;
-    width: 300px;
+    width: 100%;
 
     .auto-search-cont {
         width: 100%;
@@ -9,6 +9,17 @@
 
         .auto-search-input {
             flex-grow: 1;
+            padding: 5px;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+            border: 1.25px solid $brown;
+        }
+        .auto-search-submit {
+            background-color: $brown;
+            border: none;
+            padding: 0 8px;
+            border-radius: 0 2px 2px 0;
+            color: $white;
         }
     }
 

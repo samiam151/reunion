@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>RSVP Home</h1>
-<a href="{% url "rsvp:add" %}">Add RSVP</a>
+<a href="{% url "rsvp:add" %}" class="dark_button">Add RSVP</a>
 
 <!-- RSVP BY FAMILY -->
 {% for rsvp_f in rsvps_by_family %}
@@ -21,7 +21,11 @@
 {% for rsvp in rsvps  %}
     <div class="question">
         <p><b>{{ rsvp.name }}</b> is bringing {{ rsvp.numGuests }} people. [ {{ rsvp.member }} ]</p>
-        <a href="{% url "rsvp:delete" pk=rsvp.pk %}">Delete</a>
+        <div class="rsvp-options">
+            <a href="{% url "rsvp:delete" pk=rsvp.pk %}" class="dark_button">Delete</a>
+            <a href="{% url "rsvp:rsvp_edit" pk=rsvp.pk %}" class="light_button">Edit</a>
+        </div>
+        
     </div>
 {% endfor %}
 

@@ -19,6 +19,24 @@ $font_size_mulitplier: 0.875;
 @mixin bold {
     font-weight: 700;
 }
+@mixin button($b_color, $text_color) {
+    display: inline-block;
+    background-color: $b_color;
+    color: $text_color;
+    padding: 3px 7px 5px;
+    border-radius: 2px;
+    border: 2px solid darken($b_color, 10%);
+    font-size: 0.8em;
+
+    &:hover {
+        background-color: darken($b_color, 5%);
+        color: $text_color;
+    }
+    &:active,
+    &:focus {
+        background-color: darken($b_color, 10%);
+    }
+}
 
 // Animations Definitions
 @keyframes fadein {
@@ -29,4 +47,11 @@ $font_size_mulitplier: 0.875;
 // Utility Classes
 .fadein {
     animation: fadein 0.5s;
+}
+
+.dark_button {
+    @include button($gold, $white);
+}
+.light_button {
+    @include button($brown, $white);
 }

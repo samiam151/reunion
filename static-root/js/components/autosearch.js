@@ -51,7 +51,7 @@
         
         if(jsonResults){
             jsonResults.forEach(function(result){
-                $results_ul.append("<li class='auto-search-result'><a href='/rsvp/'" + result.pk + "'>" + result.name + "</a></li>");
+                $results_ul.append("<li class='auto-search-result'><a href='/rsvp/detail/" + result.pk + "'>" + result.name + "</a></li>");
             });
         } else {
             $results_ul.hide();

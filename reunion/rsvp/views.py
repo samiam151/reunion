@@ -41,6 +41,16 @@ class RSVPCreate(CreateView):
         mail_admins("New RSVP", "There is a new RSVP.")
         return super(RSVPCreate, self).form_valid(form)
 
+class RSVPEdit(UpdateView):
+    model = RSVP
+    fields = ['name', 'numGuests', 'member']
+    template_name = 'rsvp/edit.html'
+    success_url = '/rsvp'
+
+class RSVPDetail(DetailView):
+    model = RSVP
+    template_name = 'rsvp/detail.html'
+    context_object_name = 'rsvp'
 
 # RESTful Endpoint for RSVPs
 def json_rsvp_all(request):
