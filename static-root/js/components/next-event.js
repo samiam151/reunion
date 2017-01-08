@@ -2,8 +2,7 @@
 (function($){
     $.get('/events/json_events_all', function(events){
         // "date < date2" = date1 comes BEFORE date2
-        var first_event = getFirstEvent(events);    
-        fill_div(first_event);
+        populate_div(getFirstEvent(events));
     });
 
     function getFirstEvent(events){
@@ -20,7 +19,7 @@
             }
         });
     }
-    function fill_div(event){
+    function populate_div(event){
         var $name = $('.next-event-name'),
             $location = $('.next-event-location'),
             $time = $('.next-event-time'),

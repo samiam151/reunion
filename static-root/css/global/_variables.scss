@@ -48,7 +48,12 @@ $font_size_mulitplier: 0.875;
 .fadein {
     animation: fadein 0.5s;
 }
-
+.serif {
+    @include serif;
+}
+.sans-serif {
+    @include sans-serif;
+}
 .dark_button {
     @include button($gold, $white);
 }

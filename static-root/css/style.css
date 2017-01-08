@@ -14,6 +14,12 @@
   -webkit-animation: fadein 0.5s;
           animation: fadein 0.5s; }
 
+.serif {
+  font-family: 'Domine', serif; }
+
+.sans-serif {
+  font-family: 'Open Sans', sans-serif; }
+
 .dark_button {
   display: inline-block;
   background-color: #BCA460;

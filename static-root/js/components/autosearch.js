@@ -22,20 +22,23 @@
 
     function autocomplete(term){
         $.get('/rsvp/json_rsvp_all', function(data){
-            // Clean the data
-            var results = find_matches(clean_data(data), term);
-            // Populate the UL
-            full_ul(results);         
+            populate_ul(find_matches(clean_data(data), term));         
         });
     }
 
     function clean_data(data){
         // Returns an ARRAY of OBJECT LITERALS
-        return data.map(function(item){
+        var cleanedData = data.map(function(item){
             var neatResults = item.fields;
             neatResults['pk'] = item.pk;
             return neatResults;
         });
+        var sortedData = cleanedData.sort(function(a,b){
+            console.log(a.name,b.name);
+            return a.name.toUpperCase() > b.name.toUpperCase();
+        });
+
+        return sortedData;
     }
 
     function find_matches(results, term){
@@ -44,7 +47,7 @@
         });
     }
 
-    function full_ul(jsonResults){
+    function populate_ul(jsonResults){
         if($results_ul.children().length > 0){
             $results_ul.html("");
         }
