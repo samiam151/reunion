@@ -27,5 +27,7 @@ def eventsDetail(request, pk=None):
 # RESTful Endpoint for all Events
 def json_events_all(request):
     events = Event.objects.all()
+    # for event in events:
+    #     event.time_start = date(event.time_start)
     data = serializers.serialize('json', events)
     return HttpResponse(data, content_type="applcations/json")

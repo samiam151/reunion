@@ -17,3 +17,9 @@
         width: 100%;
     }
 }
+
+@media(max-width: 488px){
+    .only_mobile {
+        display: initial;
+    }
+}

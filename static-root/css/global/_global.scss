@@ -5,7 +5,7 @@
     @include sans-serif;
 }
 html {
-    font-size: 16px;
+    font-size: 16px * $font_size_mulitplier;
 }
 
 h1 {

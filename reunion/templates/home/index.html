@@ -3,14 +3,18 @@
 
 {% block content %}
 
-<h1>Reunion Home</h1>
+<h1>Phillip's Family Reunion</h1>
 
+<!--RSVP Searchbar-->
 {% include "components/search_rsvps.html" %}
 
+<!--Get next event(s)-->
+{% include "components/next-event.html" %}
 
 {% endblock content %}
 
 <!--Scripts required for this template-->
 {% block template_scripts %}
     <script type="text/javascript" src="{% static "js/components/autosearch.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/components/next-event.js" %}"></script>
 {% endblock template_scripts %}
