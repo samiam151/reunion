@@ -32,6 +32,8 @@
         color: $white;
         border-radius: 0 0 2px 2px;
         opacity: 0.9;
+        max-height: 300px;
+        overflow-y: auto;
 
         .auto-search-result {
             padding: 0 10px;

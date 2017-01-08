@@ -34,7 +34,6 @@
             return neatResults;
         });
         var sortedData = cleanedData.sort(function(a,b){
-            console.log(a.name,b.name);
             return a.name.toUpperCase() > b.name.toUpperCase();
         });
 

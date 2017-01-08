@@ -161,7 +161,9 @@ header nav ul {
     background-color: #7d3e49;
     color: #FFFAFF;
     border-radius: 0 0 2px 2px;
-    opacity: 0.9; }
+    opacity: 0.9;
+    max-height: 300px;
+    overflow-y: auto; }
     .auto-search .auto-search-results .auto-search-result {
       padding: 0 10px;
       cursor: pointer; }
@@ -186,3 +188,12 @@ header nav ul {
   margin-top: 15px; }
   .events .days-events .event {
     margin-top: 15px; }
+  .events .days-events .day-title.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #BCA460;
+    padding: 7px 11%;
+    color: #4F5C24;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2); }
