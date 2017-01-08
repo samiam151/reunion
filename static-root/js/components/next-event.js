@@ -6,7 +6,7 @@
     });
 
     function getFirstEvent(events){
-        // the Event model orders them by time_start
+        // the Event model orders events by time_start on export
         var now = new Date(),
             firstEventStartTime = new Date(events[0].fields.time_start);  
         if (now < firstEventStartTime){
@@ -35,13 +35,10 @@
         $location.html(event.fields.location);
 
         function to12Hour(time){
-            if(+time.split(":")[0] > 12){
-                var new_time = +time.split(":")[0] - 12;
-                var old_time= [time.split(":")[0], time.split(":")[1]];
-                old_time[0] = new_time;
-                return old_time.join(":") + " PM";
-            }
-            return new_time;
+            var re = /^(\d\d)/g;
+            return time.replace(re, function(num){
+                return num - 12;
+            });
         }
     } 
 }(jQuery));
