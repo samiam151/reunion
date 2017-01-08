@@ -23,10 +23,26 @@
     function fill_div(event){
         var $name = $('.next-event-name'),
             $location = $('.next-event-location'),
-            $time = $('.next-event-time');
-        console.log(event);
+            $time = $('.next-event-time'),
+            $date = $('.next-event-date');
+        
+        var time = new Date(event.fields.time_start),
+            event_date = time.toDateString(),
+            event_time = to12Hour(time.toTimeString().split(" ")[0]);
+        
         $name.html("<a href='/events/" + event.pk + "'>" + event.fields.name + "</a>");
-        $time.html(event.fields.time_start);
+        $date.html(event_date);
+        $time.html(event_time);
         $location.html(event.fields.location);
+
+        function to12Hour(time){
+            if(+time.split(":")[0] > 12){
+                var new_time = +time.split(":")[0] - 12;
+                var old_time= [time.split(":")[0], time.split(":")[1]];
+                old_time[0] = new_time;
+                return old_time.join(":") + " PM";
+            }
+            return new_time;
+        }
     } 
 }(jQuery));
