@@ -1,8 +1,14 @@
 {% extends "shared/_layout.html" %}
-
+{% load staticfiles %}
 {% block content %}
 
-<p>Tree Home</p>
+<h1>Family Tree</h1>
+
+
 
 {% endblock content %}
-
+{% block template_scripts %}
+<script "text/javascript" src="{% static 'js/libs/d3.min.js' %}"></script>
+<script "text/javascript" src="{% static 'js/libs/d3-geo.min.js' %}"></script>
+<script "text/javascript" src="{% static 'js/components/family-tree.js' %}"></script>
+{% endblock template_scripts %}

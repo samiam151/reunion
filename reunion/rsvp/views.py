@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
-from django.core.mail import mail_admins
+# from django.core.mail import mail_admins
 
 from .models import RSVP
 

@@ -103,7 +103,8 @@ header nav ul {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 0.5em 10%; }
+  padding: 0.5em 10%;
+  margin-bottom: 20px; }
   header nav ul li {
     margin-right: 50px; }
     header nav ul li a {
@@ -157,15 +158,14 @@ header nav ul {
     display: none;
     position: absolute;
     width: 100%;
-    padding: 2px 0 8px;
     background-color: #7d3e49;
     color: #FFFAFF;
     border-radius: 0 0 2px 2px;
-    opacity: 0.9;
+    opacity: 0.975;
     max-height: 300px;
     overflow-y: auto; }
     .auto-search .auto-search-results .auto-search-result {
-      padding: 0 10px;
+      padding: 2px 10px;
       cursor: pointer; }
       .auto-search .auto-search-results .auto-search-result a {
         display: block; }
@@ -174,15 +174,15 @@ header nav ul {
         .auto-search .auto-search-results .auto-search-result:hover a {
           color: #FFFAFF; }
 
+.next-event-name {
+  color: #391C21;
+  font-size: 1.5em; }
+
 .home-next-event .home-next-event-title {
   text-transform: capitalize; }
 
 .home-next-event p {
   font-size: 1.4em; }
-
-.home-next-event .next-event-name {
-  color: #391C21;
-  font-size: 1.5em; }
 
 .events .days-events {
   margin-top: 15px; }

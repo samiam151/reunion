@@ -1,6 +1,6 @@
 "use strict";
 (function($){
-    var $headers = Array.prototype.slice.call(document.querySelectorAll('.day-title')),
+    var $headers = toArray(document.querySelectorAll('.day-title')),
         header_tops = $headers.map(function(header){
             return { element: $(header), top: Math.round($(header).offset().top)}
         }),
@@ -14,14 +14,10 @@
             target.addClass("sticky");  
         } 
     });
-
-    function clear_headers(){
-        $(".day-title.sticky").removeClass('sticky');
-    }
     
     function get_current_header(window_top){
         function get_element_height(index){
-            for (; index >= 0; index--){
+            if(index >= 0){
                 if (window_top > header_tops[index].top){
                     return header_tops[index].element;
                 }
@@ -29,7 +25,9 @@
             }
             return null;
         };    
-        var element = get_element_height(header_tops.length -1);
-        return element;
+        return get_element_height(header_tops.length -1);
+    }
+    function clear_headers(){
+        $(".day-title.sticky").removeClass('sticky');
     }
 }(jQuery));

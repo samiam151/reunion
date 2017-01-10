@@ -1,12 +1,12 @@
 "use strict";
 (function($){
     $.get('/events/json_events_all', function(events){
-        // "date < date2" = date1 comes BEFORE date2
-        populate_div(getFirstEvent(events));
+        populate_div(getNextEvent(events));
     });
 
-    function getFirstEvent(events){
+    function getNextEvent(events){
         // the Event model orders events by time_start on export
+        // "date < date2" = date1 comes BEFORE date2
         var now = new Date(),
             firstEventStartTime = new Date(events[0].fields.time_start);  
         if (now < firstEventStartTime){
@@ -19,6 +19,7 @@
             }
         });
     }
+
     function populate_div(event){
         var $name = $('.next-event-name'),
             $location = $('.next-event-location'),

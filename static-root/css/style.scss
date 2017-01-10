@@ -9,7 +9,9 @@
 @import "global/_mobile.scss";
 
 // Components
-@import "components/auto-search.scss";
+@import "components/_auto-search.scss";
+@import "components/_next-event.scss";
+@import "components/_family_tree.scss";
 
 // Home
 @import "home/_home.scss";

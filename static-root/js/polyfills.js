@@ -13,3 +13,7 @@ if (!String.prototype.includes) {
     }
   };
 }
+
+function toArray(nodelist){
+  return Array.prototype.slice.call(nodelist);
+}
