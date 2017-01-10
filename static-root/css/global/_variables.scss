@@ -1,0 +1,62 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700|Open+Sans:400,700');
+
+// Variables
+$purple: #391C21;
+$green: #4F5C24;
+$white:  #FFFAFF;
+$gold: #BCA460;
+$brown: #A59385;
+
+$font_size_mulitplier: 0.875;
+// Mixins
+@mixin serif {
+    font-family: 'Domine', serif;
+}
+@mixin sans-serif {
+    font-family: 'Open Sans', sans-serif;
+}
+@mixin bold {
+    font-weight: 700;
+}
+@mixin button($b_color, $text_color) {
+    display: inline-block;
+    background-color: $b_color;
+    color: $text_color;
+    padding: 3px 7px 5px;
+    border-radius: 2px;
+    border: 2px solid darken($b_color, 10%);
+    font-size: 0.8em;
+
+    &:hover {
+        background-color: darken($b_color, 5%);
+        color: $text_color;
+    }
+    &:active,
+    &:focus {
+        background-color: darken($b_color, 10%);
+    }
+}
+
+// Animations Definitions
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+// Utility Classes
+.fadein {
+    animation: fadein 0.5s;
+}
+.serif {
+    @include serif;
+}
+.sans-serif {
+    @include sans-serif;
+}
+.dark_button {
+    @include button($gold, $white);
+}
+.light_button {
+    @include button($brown, $white);
+}

@@ -1,0 +1,23 @@
+.events {
+
+    .days-events {
+        margin-top: 15px;
+
+        .event {
+            margin-top: 15px;
+        }
+
+        .day-title {
+            &.sticky {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: $gold;
+                padding: 7px 11%;
+                color: $green;
+                text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+            }
+        }
+    }
+}

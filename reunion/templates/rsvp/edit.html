@@ -1,0 +1,28 @@
+{% extends "shared/_layout.html" %}
+
+{% block content %}
+
+
+<h2>Edit RSVP</h2>
+<form method="POST">{% csrf_token %}
+    <div class="question">
+        <label for="{{form.name.id_for_label}}">Name: </label>
+        {{ form.name }}
+    </div>
+
+    <div class="question">
+        <label for="{{form.numGuests.id_for_label}}">Number of Guests: </label>
+        {{ form.numGuests }}
+    </div>
+
+    <div class="question">
+        <label for="{{form.member.id_for_label}}">Family Member: </label>
+        {{ form.member }}
+    </div>
+
+    <input type="submit" class="dark_button" value="Save Changes">
+    <a href='{% url "rsvp:list" %}'" class="light_button">Cancel</a>
+
+</form>
+
+{% endblock content %}

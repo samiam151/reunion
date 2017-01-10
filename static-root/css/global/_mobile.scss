@@ -1,0 +1,25 @@
+@media(max-width:768px){
+    header {
+        nav {
+            ul {
+                justify-content: space-between;
+                li {
+                    margin-right: 10px;
+                    a {
+                        font-size: 1.3em;
+                    }
+                }
+            }
+        }
+    }
+
+    .auto_search {
+        width: 100%;
+    }
+}
+
+@media(max-width: 488px){
+    .only_mobile {
+        display: initial;
+    }
+}

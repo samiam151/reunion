@@ -1,0 +1,10 @@
+{% extends "shared/_layout.html" %}
+{% block content %}
+
+<h1>{{rsvp.name}}</h1>
+<p>Number of Guests: {{rsvp.numGuests}}</p>
+<p>RSVP'd on: {{rsvp.timestamp | date}}, {{rsvp.timestamp | time}}</p>
+<p>Descended from: {{rsvp.member}}</p>
+
+<a href="{% url 'rsvp:list' %}" class="light_button">See All RSVP's</a>
+{% endblock content %}
